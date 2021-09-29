@@ -1,9 +1,12 @@
 const express = require('express');
-const db = require('./db');
-require('dotenv').config();
 const cors = require('cors');
 
+require('./db');
+require('dotenv').config();
+
 //routers
+const categoryRouter = require('./routers/routes/category');
+const saleRouter = require('./routers/routes/sale');
 
 const app = express();
 
@@ -14,6 +17,8 @@ app.use(express.json());
 app.use(cors());
 
 // router middleware
+app.use('/categories', categoryRouter);
+app.use('/sales', saleRouter);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
