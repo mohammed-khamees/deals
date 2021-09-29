@@ -27,11 +27,17 @@ const getAnSaleById = (req, res) => {
 };
 
 const createNewSale = (req, res) => {
-	const { title, img } = req.body;
+	const { title, img, units, offer, price, offerEndDate, category } = req.body;
 
 	const sale = new saleModel({
 		title,
 		img,
+		title,
+		units,
+		offer,
+		price,
+		offerEndDate,
+		category,
 	});
 
 	sale

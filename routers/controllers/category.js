@@ -27,11 +27,12 @@ const getAnCategoryById = (req, res) => {
 };
 
 const createNewCategory = (req, res) => {
-	const { title, img } = req.body;
+	const { title, img, color } = req.body;
 
 	const category = new categoryModel({
 		title,
 		img,
+		color,
 	});
 
 	category
@@ -40,6 +41,7 @@ const createNewCategory = (req, res) => {
 			res.status(201).json(result);
 		})
 		.catch((err) => {
+			console.log(err);
 			res.send(err);
 		});
 };
